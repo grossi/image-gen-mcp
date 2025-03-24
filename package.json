@@ -1,0 +1,20 @@
+{
+  "name": "image-gen",
+  "version": "0.1.0",
+  "description": "Generate images using Automatic1111/ForgeUI API",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "watch": "tsc -w",
+    "start": "node build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "@types/node": "latest",
+    "@types/sharp": "latest",
+    "axios": "latest",
+    "form-data": "latest",
+    "sharp": "latest",
+    "typescript": "^5.8.2"
+  }
+}
