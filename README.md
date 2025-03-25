@@ -41,7 +41,13 @@ npm run build
         "SD_WEBUI_URL": "http://your-sd-webui-url:7860",
         "SD_AUTH_USER": "your-username",  // Optional: if authentication is enabled
         "SD_AUTH_PASS": "your-password",  // Optional: if authentication is enabled
-        "SD_OUTPUT_DIR": "/path/to/output/directory"
+        "SD_OUTPUT_DIR": "/path/to/output/directory",
+        "SD_RESIZE_MODE": "0",           // Optional: upscaling mode (0=multiplier, 1=dimensions)
+        "SD_UPSCALE_MULTIPLIER": "4",    // Optional: default upscale multiplier
+        "SD_UPSCALE_WIDTH": "512",       // Optional: default upscale width
+        "SD_UPSCALE_HEIGHT": "512",      // Optional: default upscale height
+        "SD_UPSCALER_1": "R-ESRGAN 4x+", // Optional: default primary upscaler
+        "SD_UPSCALER_2": "None"          // Optional: default secondary upscaler
       }
     }
   }
@@ -53,6 +59,12 @@ Replace the environment variables with your values:
 - `SD_AUTH_USER`: Username for basic auth (if enabled)
 - `SD_AUTH_PASS`: Password for basic auth (if enabled)
 - `SD_OUTPUT_DIR`: Directory where generated images will be saved
+- `SD_RESIZE_MODE`: Default upscaling mode (0 for multiplier, 1 for dimensions)
+- `SD_UPSCALE_MULTIPLIER`: Default upscale multiplier when resize_mode is 0
+- `SD_UPSCALE_WIDTH`: Default target width when resize_mode is 1
+- `SD_UPSCALE_HEIGHT`: Default target height when resize_mode is 1
+- `SD_UPSCALER_1`: Default primary upscaler model
+- `SD_UPSCALER_2`: Default secondary upscaler model
 
 ## Features
 
@@ -73,6 +85,29 @@ Replace the environment variables with your values:
     - `tiling`: Generate tileable images
     - `output_path`: Custom output path for the generated image
 
+- `get_sd_models` - Get list of available Stable Diffusion models
+  - No parameters required
+  - Returns an array of model names
+
+- `set_sd_model` - Set the active Stable Diffusion model
+  - Parameters:
+    - `model_name` (required): Name of the model to set as active
+
+- `get_sd_upscalers` - Get list of available upscaler models
+  - No parameters required
+  - Returns an array of upscaler names
+
+- `upscale_images` - Upscale one or more images using Stable Diffusion
+  - Parameters:
+    - `images` (required): Array of image file paths to upscale
+    - `resize_mode`: 0 for multiplier mode, 1 for dimension mode (default: from env)
+    - `upscaling_resize`: Upscale multiplier when resize_mode=0 (default: from env)
+    - `upscaling_resize_w`: Target width in pixels when resize_mode=1 (default: from env)
+    - `upscaling_resize_h`: Target height in pixels when resize_mode=1 (default: from env)
+    - `upscaler_1`: Primary upscaler model (default: from env)
+    - `upscaler_2`: Secondary upscaler model (default: from env)
+    - `output_path`: Custom output directory for upscaled images
+
 ## Development
 
 For development with auto-rebuild:
@@ -87,3 +122,4 @@ Common issues and solutions:
 2. Check if the WebUI URL is accessible from where you're running the MCP server
 3. If using authentication, ensure credentials are correct
 4. Verify the output directory exists and has write permissions
+5. When upscaling, ensure the input image files exist and are readable
