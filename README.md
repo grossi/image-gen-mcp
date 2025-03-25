@@ -123,3 +123,7 @@ Common issues and solutions:
 3. If using authentication, ensure credentials are correct
 4. Verify the output directory exists and has write permissions
 5. When upscaling, ensure the input image files exist and are readable
+
+## License
+
+This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
