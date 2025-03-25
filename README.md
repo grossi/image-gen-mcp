@@ -2,6 +2,10 @@
 
 A MCP server that provides text-to-image generation capabilities using Stable Diffusion WebUI API (ForgeUI/AUTOMATIC-1111).
 
+<a href="https://glama.ai/mcp/servers/@Ichigo3766/image-gen-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@Ichigo3766/image-gen-mcp/badge" alt="Image Generation Server MCP server" />
+</a>
+
 ## Installation
 
 ### Prerequisites
