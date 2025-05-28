@@ -77,12 +77,12 @@ Replace the environment variables with your values:
   - Parameters:
     - `prompt` (required): Text description of the desired image
     - `negative_prompt`: Things to exclude from the image
-    - `steps`: Number of sampling steps (default: 4, range: 1-150)
+    - `steps`: Number of sampling steps (default: 20, range: 1-150)
     - `width`: Image width (default: 1024, range: 512-2048)
     - `height`: Image height (default: 1024, range: 512-2048)
-    - `cfg_scale`: CFG scale (default: 1, range: 1-30)
-    - `sampler_name`: Sampling algorithm (default: "Euler")
-    - `scheduler_name`: Scheduler algorithm (default: "Simple")
+    - `cfg_scale`: CFG scale (default: 4, range: 1-30)
+    - `sampler_name`: Sampling algorithm (default: "DPM++ 2M SDE")
+    - `scheduler_name`: Scheduler algorithm (default: "Karras")
     - `seed`: Random seed (-1 for random)
     - `batch_size`: Number of images to generate (default: 1, max: 4)
     - `restore_faces`: Enable face restoration
